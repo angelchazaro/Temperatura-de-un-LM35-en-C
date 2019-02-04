@@ -8,7 +8,6 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
-#include "uart.h"
 
 unsigned int ValorADC,Temperatura;
 unsigned char Dec,Uni;
@@ -31,14 +30,13 @@ int main(void)
 	
 	ADMUX=0;	//Valor inicial del ADMUX
 	ADCSRA=0x8D;
-	ADCSRA|=1<<ADSC;	//0x40;
+	ADCSRA|=1<<ADSC;	
 	
 	sei();
 	
     /* Replace with your application code */
     while (1) 
     {
-		//UART_Printf("Temperatura: %2d \n\r",Temperatura);
 			Dec= Temperatura/10;
 			Uni= Temperatura%10;
 			
@@ -60,7 +58,7 @@ int main(void)
 			UDR= Dec+0x30;				_delay_ms(10);
 			UDR= Uni+0x30;				_delay_ms(10);
 			
-			UDR='°';					_delay_ms(10);
+			UDR='Â°';					_delay_ms(10);
 			UDR='C';					_delay_ms(10);
 		
 			UDR= '\n';					_delay_ms(10);	//Nueva linea
