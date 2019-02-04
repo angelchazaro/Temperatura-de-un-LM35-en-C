@@ -55,8 +55,8 @@ int main(void)
 			UDR=' ';					_delay_ms(10);
 			
 		
-			UDR= Dec+0x30;				_delay_ms(10);
-			UDR= Uni+0x30;				_delay_ms(10);
+			UDR= Dec+0x30;					_delay_ms(10);
+			UDR= Uni+0x30;					_delay_ms(10);
 			
 			UDR='°';					_delay_ms(10);
 			UDR='C';					_delay_ms(10);
